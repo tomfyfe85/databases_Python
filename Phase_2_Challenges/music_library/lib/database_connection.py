@@ -1,7 +1,6 @@
 import psycopg
 from psycopg.rows import dict_row
 import os
-# test
 
 # This class helps us interact with the database.
 # It wraps the underlying psycopg library that we are using.
