@@ -38,6 +38,8 @@ Then It comes out in a friendly format
 def test_formatting()
 
 
+
+
 # create class
 
 class Artist:
@@ -72,7 +74,7 @@ I get all the artists back in a list
 
 def test_list_all_artists(db_connection)
 # seed database to get sample data in
-  db.connection.seed("seeds/music_library.sql")
+  db_connection.seed("seeds/music_library.sql")
   repo = ArtistRepository(db_connection)
   result = repo.all()
   #check seed fill to check what all should be
@@ -95,7 +97,7 @@ class ArtistRepository:
       artists = []
       for row in result:
         item = Artist(row["id"], row["name"], row["genre"])
-        artist.append(item)
+        artists.append(item)
       return artists
 
   
