@@ -11,3 +11,13 @@ def test_constructs_with_fields():
   assert album.title == 'Doolittle'
   assert album.release_year == 1989
   assert album.artist_id == 1
+
+"""
+When I construct two artists with the same fields they
+Are equal.
+"""
+
+def test_equality():
+  album_1 = Album('Doolittle', 1989, 1)
+  album_2 = Album('Doolittle', 1989, 1)
+  assert album_1 == album_2
