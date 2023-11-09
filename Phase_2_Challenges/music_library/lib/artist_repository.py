@@ -15,7 +15,7 @@ class ArtistRepository:
             artists.append(item)
         return artists
 
-    # Find a single artist by their id
+    # Find a single artist by their id 
     def find(self, artist_id):
         rows = self._connection.execute(
             'SELECT * from artists WHERE id = %s', [artist_id])
