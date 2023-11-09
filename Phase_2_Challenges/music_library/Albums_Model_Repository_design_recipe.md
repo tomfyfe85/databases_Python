@@ -149,18 +149,18 @@ def test_list_all_artists(db_connection)
   repo = AlbumRepository(db_connection)
   result = repo.all()
   assert result == [
-    Albums('Doolittle', 1989, 1),  
-    Albums('Surfer Rosa', 1988, 1),
-    Albums('Waterloo', 1974, 2),
-    Albums('Super Trouper', 1980, 2),
-    Albums('Bossanova', 1990, 1),
-    Albums('Lover', 2019, 3),
-    Albums('Folklore', 2020, 3),
-    Albums('I Put a Spell on You', 1965, 4),
-    Albums('Baltimore', 1978, 4),
-    Albums('Here Comes the Sun', 1971, 4),
-    Albums('Fodder on My Wings', 1982, 4),
-    Albums('Ring Ring', 1973, 2)
+    Album('Doolittle', 1989, 1),  
+    Album('Surfer Rosa', 1988, 1),
+    Album('Waterloo', 1974, 2),
+    Album('Super Trouper', 1980, 2),
+    Album('Bossanova', 1990, 1),
+    Album('Lover', 2019, 3),
+    Album('Folklore', 2020, 3),
+    Album('I Put a Spell on You', 1965, 4),
+    Album('Baltimore', 1978, 4),
+    Album('Here Comes the Sun', 1971, 4),
+    Album('Fodder on My Wings', 1982, 4),
+    Album('Ring Ring', 1973, 2)
 ]
 # # 2albums.py
 # # Get a single student
