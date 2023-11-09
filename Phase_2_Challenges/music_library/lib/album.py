@@ -8,4 +8,4 @@ class Album:
         return self.__dict__ == other.__dict__
 
     def __repr__(self):
-        return f"Artists({self.id}, {self.name}, {self.genre})"
+        return f"Album({self.title}, {self.release_year}, {self.artist_id})"
