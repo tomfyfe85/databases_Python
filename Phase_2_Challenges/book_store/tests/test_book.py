@@ -14,3 +14,8 @@ def test_book_constructs():
 def test_books_format_nicely():
     book = Book(1, 'test title', 'test author')
     assert str(book) == "Book(1, test title, test author)"
+
+def test_books_are_equal():
+    book1 = Book(1, "test title", "test author")
+    book2 = Book(1, "test title", "test author")
+    assert book1 == book2 
