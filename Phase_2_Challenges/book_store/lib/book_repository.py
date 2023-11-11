@@ -12,4 +12,6 @@ class BookRepository:
         for row in rows:
             item = Book(row["id"], row["title"], row["author_name"])
             books.append(item)
+            print(item)
+            print(f"books - {item}")
         return books

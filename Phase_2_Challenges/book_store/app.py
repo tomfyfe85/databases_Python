@@ -15,4 +15,3 @@ books = book_repository.all()
 # List artists them out
 for book in books:
     print(book)
-
