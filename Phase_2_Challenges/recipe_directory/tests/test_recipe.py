@@ -1,13 +1,14 @@
-# from databases_repoClone_and_exercises.databases.Phase_2_Challenges.recipe_directory.lib.recipe import Artist
+from lib.recipe import Recipe
 
-# """
-# Artist constructs with an id, name and genre
-# """
-# def test_artist_constructs():
-#     artist = Artist(1, "Test Artist", "Test Genre")
-#     assert artist.id == 1
-#     assert artist.name == "Test Artist"
-#     assert artist.genre == "Test Genre"
+"""
+Recipe constructs with an id, name, cooking_time and rating
+"""
+def test_recipe_constructs():
+    recipe = Recipe(1, "Test name", "Test cooking_time", "Test rating")
+    assert recipe.id == 1
+    assert recipe.name == "Test name"
+    assert recipe.cooking_time == "Test cooking_time"
+    assert recipe.rating_1_to_5 == "Test rating"
 
 # """
 # We can format artists to strings nicely
