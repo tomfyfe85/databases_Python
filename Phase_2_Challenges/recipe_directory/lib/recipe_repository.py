@@ -1,6 +1,6 @@
-from databases_repoClone_and_exercises.databases.Phase_2_Challenges.recipe_directory.lib.recipe import Artist
+from lib.recipe import Recipe
 
-class ArtistRepository:
+class RecipeRepository:
 
     # We initialise with a database connection
     def __init__(self, connection):
@@ -8,13 +8,13 @@ class ArtistRepository:
 
     # Retrieve all artists
     def all(self):
-        rows = self._connection.execute('SELECT * from artists')
-        artists = []
+        rows = self._connection.execute('SELECT * from recipes')
+        recipes = []
         for row in rows:
-            item = Artist(row["id"], row["name"], row["genre"])
-            artists.append(item)
-        return artists
-
+            item = Recipe(row["id"], row["name"], row["cooking_time"], row["rating_1_to_5"])
+            recipes.append(item)
+        return recipes
+        
     # Find a single artist by their id
     # def find(self, artist_id):
     #     rows = self._connection.execute(
