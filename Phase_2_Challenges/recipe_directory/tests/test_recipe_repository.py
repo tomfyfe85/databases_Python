@@ -1,5 +1,5 @@
-from lib.artist_repository import ArtistRepository
-from lib.artist import Artist
+from databases_repoClone_and_exercises.databases.Phase_2_Challenges.recipe_directory.lib.recipe_repository import ArtistRepository
+from databases_repoClone_and_exercises.databases.Phase_2_Challenges.recipe_directory.lib.recipe import Artist
 
 """
 When we call ArtistRepository#all

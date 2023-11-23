@@ -1,5 +1,5 @@
 from lib.database_connection import DatabaseConnection
-from lib.artist_repository import ArtistRepository
+from databases_repoClone_and_exercises.databases.Phase_2_Challenges.recipe_directory.lib.recipe_repository import ArtistRepository
 
 
 # Connect to the database
