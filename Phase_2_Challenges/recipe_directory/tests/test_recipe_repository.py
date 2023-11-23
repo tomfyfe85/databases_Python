@@ -25,13 +25,13 @@ def test_get_all_recipes(
     ]
 
 
-# """
-# When we call ArtistRepository#find
-# We get a single Artist object reflecting the seed data.
-# """
-# def test_get_single_record(db_connection):
-#     db_connection.seed("seeds/music_library.sql")
-#     repository = ArtistRepository(db_connection)
+"""
+When we call RecipeRepository#find
+We get a single Recipe object reflecting the seed data.
+"""
+def test_get_single_recipe(db_connection):
+    db_connection.seed("seeds/recipes.sql")
+    repository = RecipeRepository(db_connection)
 
-#     artist = repository.find(3)
-#     assert artist == Artist(3, "Taylor Swift", "Pop")
+    recipe = repository.find(3)
+    assert recipe ==  Recipe(3, "Ribs", 2040, 4)

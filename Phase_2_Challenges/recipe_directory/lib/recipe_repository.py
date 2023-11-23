@@ -16,11 +16,11 @@ class RecipeRepository:
         return recipes
         
     # Find a single artist by their id
-    # def find(self, artist_id):
-    #     rows = self._connection.execute(
-    #         'SELECT * from artists WHERE id = %s', [artist_id])
-    #     row = rows[0]
-    #     return Artist(row["id"], row["name"], row["genre"])
+    def find(self, recipe_id):
+        rows = self._connection.execute(
+            'SELECT * from recipes WHERE id = %s', [recipe_id])
+        row = rows[0]
+        return  Recipe(row["id"], row["name"], row["cooking_time"], row["rating_1_to_5"])
 
     # Create a new artist
     # Do you want to get its id back? Look into RETURNING id;
