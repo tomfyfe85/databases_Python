@@ -10,14 +10,14 @@ def test_recipe_constructs():
     assert recipe.cooking_time == "Test cooking_time"
     assert recipe.rating_1_to_5 == "Test rating"
 
-# """
-# We can format artists to strings nicely
-# """
-# def test_artists_format_nicely():
-#     artist = Artist(1, "Test Artist", "Test Genre")
-#     assert str(artist) == "Artist(1, Test Artist, Test Genre)"
-#     # Try commenting out the `__repr__` method in lib/artist.py
-#     # And see what happens when you run this test again.
+"""
+We can format recipes to strings nicely
+"""
+def test_artists_format_nicely():
+    recipe = Recipe(1, "Test name", "Test cooking_time", "Test rating")
+    assert str(recipe) == "Recipe(1, Test name, Test cooking_time, Test rating)"
+    # Try commenting out the `__repr__` method in lib/artist.py
+    # And see what happens when you run this test again.
 
 # """
 # We can compare two identical artists
