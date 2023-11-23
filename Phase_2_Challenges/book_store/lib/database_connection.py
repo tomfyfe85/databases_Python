@@ -44,7 +44,7 @@ class DatabaseConnection:
                 result = cursor.fetchall()
             else:
                 result = None
-            self.connection.commit()
+            self.connection.commit()   
             return result
 
     CONNECTION_MESSAGE = (
