@@ -11,15 +11,15 @@ connection.seed("seeds/music_library.sql")
 
 # Retrieve all artists
 artist_repository = ArtistRepository(connection)
-artists = artist_repository.all()
+for artist in artist_repository.all():
+    print(artist)
+
+# Find an artist
+print(artist_repository.find(2))
 
 # Retrieve all albums
 album_repository = AlbumRepository(connection)
-albums = album_repository.all()
-
-# List artists them out
-for artist in artists:
-    print(artist)
-
-for album in albums:
+for album in album_repository.all():
     print(album)
+
+

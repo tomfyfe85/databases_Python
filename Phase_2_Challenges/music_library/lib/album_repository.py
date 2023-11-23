@@ -9,7 +9,6 @@ class AlbumRepository:
     # No arguments
     def all(self):
         result = self.connection.execute("SELECT * FROM albums")
-        print(result)
 
         return [Album(row['id'], row["title"], row["release_year"], row["artist_id"])
                 for row in result]
