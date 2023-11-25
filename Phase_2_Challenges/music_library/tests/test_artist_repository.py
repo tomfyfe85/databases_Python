@@ -7,7 +7,7 @@ We get a list of Artist objects reflecting the seed data.
 """
 def test_get_all_records(db_connection): # See conftest.py to learn what `db_connection` is.
     db_connection.seed("seeds/music_library.sql") # Seed our database with some test data
-    repository = ArtistRepository(db_connection) # Create a new ArtistRepository
+    repository = ArtistRepository(db_connection) 
 
     artists = repository.all() # Get all artists
 
@@ -29,7 +29,7 @@ def test_get_single_record(db_connection):
 
     artist = repository.find(3)
     assert artist == Artist(3, "Taylor Swift", "Pop")
-
+ 
 # """
 # When we call ArtistRepository#create
 # We get a new record in the database.
@@ -49,10 +49,27 @@ def test_get_single_record(db_connection):
 #         Artist(5, "The Beatles", "Rock"),
 #     ]
 
-# """
-# When we call ArtistRepository#delete
-# We remove a record from the database.
-# """
+def test_create_records(db_connection): # See conftest.py to learn what `db_connection` is.
+    db_connection.seed("seeds/music_library.sql") # Seed our database with some test data
+    repository = ArtistRepository(db_connection) 
+
+    artist = Artist(None, 'The Beatles', 'Rock')
+    assert repository.create(artist) == None
+    
+    results = repository.all()
+    assert results == [
+        Artist(1, "Pixies", "Rock"),
+        Artist(2, "ABBA", "Pop"),
+        Artist(3, "Taylor Swift", "Pop"),
+        Artist(4, "Nina Simone", "Jazz"),
+        Artist(5, "The Beatles", "Rock"),
+]
+
+
+"""
+When we call ArtistRepository#delete
+We remove a record from the database.
+"""
 # def test_delete_record(db_connection):
 #     db_connection.seed("seeds/music_library.sql")
 #     repository = ArtistRepository(db_connection)
@@ -64,3 +81,15 @@ def test_get_single_record(db_connection):
 #         Artist(2, "ABBA", "Pop"),
 #         Artist(4, "Nina Simone", "Jazz"),
 #     ]
+
+def test_delete_record(db_connection):
+    db_connection.seed("seeds/music_library.sql")
+    repository = ArtistRepository(db_connection)
+    assert repository.delete(3) == None
+
+    result = repository.all()
+    assert result == [
+        Artist(1, "Pixies", "Rock"),
+        Artist(2, "ABBA", "Pop"),
+        Artist(4, "Nina Simone", "Jazz"),
+    ]
