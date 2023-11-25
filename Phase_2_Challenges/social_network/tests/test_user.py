@@ -3,20 +3,20 @@ from lib.user import User
 """
 User constructs with an id, name and email
 """
-def test_artist_constructs():
+def test_user_constructs():
     user = User(1, "Test User", "Test Email")
     assert user.id == 1
     assert user.name == "Test User"
     assert user.email == "Test Email"
 
-# """
-# We can format artists to strings nicely
-# """
-# def test_artists_format_nicely():
-#     user = User(1, "Test User", "Test Email")
-#     assert str(user) == "User(1, Test User, Test Email)"
-#     # Try commenting out the `__repr__` method in lib/user.py
-#     # And see what happens when you run this test again.
+"""
+We can format artists to strings nicely
+"""
+def test_artists_format_nicely():
+    user = User(1, "Test User", "Test Email")
+    assert str(user) == "User(1, Test User, Test Email)"
+    # Try commenting out the `__repr__` method in lib/user.py
+    # And see what happens when you run this test again.
 
 # """
 # We can compare two identical artists
