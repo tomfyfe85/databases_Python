@@ -1,21 +1,21 @@
-# from lib.user import User
+from lib.user import User
 
-# """
-# Artist constructs with an id, name and genre
-# """
-# def test_artist_constructs():
-#     artist = Artist(1, "Test Artist", "Test Genre")
-#     assert artist.id == 1
-#     assert artist.name == "Test Artist"
-#     assert artist.genre == "Test Genre"
+"""
+User constructs with an id, name and email
+"""
+def test_artist_constructs():
+    user = User(1, "Test User", "Test Email")
+    assert user.id == 1
+    assert user.name == "Test User"
+    assert user.email == "Test Email"
 
 # """
 # We can format artists to strings nicely
 # """
 # def test_artists_format_nicely():
-#     artist = Artist(1, "Test Artist", "Test Genre")
-#     assert str(artist) == "Artist(1, Test Artist, Test Genre)"
-#     # Try commenting out the `__repr__` method in lib/artist.py
+#     user = User(1, "Test User", "Test Email")
+#     assert str(user) == "User(1, Test User, Test Email)"
+#     # Try commenting out the `__repr__` method in lib/user.py
 #     # And see what happens when you run this test again.
 
 # """
@@ -23,8 +23,8 @@
 # And have them be equal
 # """
 # def test_artists_are_equal():
-#     artist1 = Artist(1, "Test Artist", "Test Genre")
-#     artist2 = Artist(1, "Test Artist", "Test Genre")
-#     assert artist1 == artist2
-#     # Try commenting out the `__eq__` method in lib/artist.py
-#     # And see what happens when you run this test again.
+#     user1 = User(1, "Test User", "Test Email")
+#     user2 = User(1, "Test Artist", "Test Email")
+    # assert user1 == user2
+    # Try commenting out the `__eq__` method in lib/user.py
+    # And see what happens when you run this test again.
