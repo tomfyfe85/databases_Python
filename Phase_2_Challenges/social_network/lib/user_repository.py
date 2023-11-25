@@ -20,12 +20,13 @@ class UserRepository:
         row = rows[0]
         return User(row["id"], row["name"], row["email"])
 
-    # # Create a new artist
-    # # Do you want to get its id back? Look into RETURNING id;
-    # def create(self, artist):
-    #     self._connection.execute('INSERT INTO artists (name, genre) VALUES (%s, %s)', [
-    #                             artist.name, artist.genre])
-    #     return None
+    # Create a new artist
+    # Do you want to get its id back? Look into RETURNING id;
+    def create(self, user):
+        self._connection.execute(
+            "INSERT INTO users (name, email) VALUES (%s, %s)", [user.name, user.email]
+        )
+        return None
 
     # # Delete an artist by their id
     # def delete(self, artist_id):
