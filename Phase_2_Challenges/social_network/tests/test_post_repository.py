@@ -44,21 +44,21 @@ We get a new record in the database.
 """
 
 
-# def test_create_post(db_connection):
-#     db_connection.seed("seeds/social_network.sql")
-#     repository = PostRepository(db_connection)
+def test_create_post(db_connection):
+    db_connection.seed("seeds/social_network.sql")
+    repository = PostRepository(db_connection)
 
-#     post = Post(None, "new post", "new content", 9, 2)
-#     assert repository.create(post) == None
+    post = Post(None, "new Title", "new Content", 9, 2)
+    assert repository.create(post) == None
 
-#     posts = repository.all()
+    posts = repository.all()
 
-#     assert posts == [
-#         Post(1, "new album!", "PYRAMID POWER BABY!", 666, 1),
-#         Post(2, "new live show", "we are on this week", 100, 2),
-#         Post(3, "el beers", "tour beers are good beers", 110000, 3),
-#         Post(4, "new post", "new content", 9, 2),
-#     ]
+    assert posts == [
+        Post(1, "new album!", "PYRAMID POWER BABY!", 666, 1),
+        Post(2, "new live show", "we are on this week", 100, 2),
+        Post(3, "el beers", "tour beers are good beers", 110000, 3),
+        Post(4, "new Title", "new Content", 9, 2),
+    ]
 
 
 # """

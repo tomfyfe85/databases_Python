@@ -23,12 +23,12 @@ class PostRepository:
         return  Post(row["id"], row['title'], row["content"], row["number_of_views"], row['user_id'])
 
     # Create a new user
-    # # Do you want to get its id back? Look into RETURNING id;
-    # def create(self, post):
-    #     self._connection.execute(
-    #         "INSERT INTO posts (name, email) VALUES (%s, %s)", [post.content, post.number_of_views, post.user_id]
-    #     )
-    #     return None
+    # Do you want to get its id back? Look into RETURNING id;
+    def create(self, post):
+        self._connection.execute(
+            "INSERT INTO posts (title, content, number_of_views, user_id) VALUES (%s, %s, %s, %s)", [post.title, post.content, post.number_of_views, post.user_id]
+        )
+        return None
 
     # # Delete an user by their id
     # def delete(self, post_id):
