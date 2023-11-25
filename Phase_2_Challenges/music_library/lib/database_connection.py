@@ -46,8 +46,8 @@ class DatabaseConnection:
                 result = None
             self.connection.commit()
             return result
-            # result is a list of dictionaries 
-            
+            # result is a list of dictionaries
+
     CONNECTION_MESSAGE = (
         ""
         "DatabaseConnection.exec_params: Cannot run a SQL query as "
