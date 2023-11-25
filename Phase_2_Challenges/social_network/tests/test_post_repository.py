@@ -82,3 +82,16 @@ def test_delete_post(db_connection):
         Post(3, "el beers", "tour beers are good beers", 110000, 3),
         Post(4, "new Title", "new Content", 9, 2),
     ]
+
+
+def test_update_post(db_connection):
+    db_connection.seed("seeds/social_network.sql")
+    repository = PostRepository(db_connection)
+    post = repository.find(1)
+    post.title = "NEW ALBUM ALERT"
+    assert repository.update(post) == None
+    assert repository.all() == [
+        Post(1, "NEW ALBUM ALERT", "PYRAMID POWER BABY!", 666, 1),
+        Post(2, "new live show", "we are on this week", 100, 2),
+        Post(3, "el beers", "tour beers are good beers", 110000, 3),
+    ]

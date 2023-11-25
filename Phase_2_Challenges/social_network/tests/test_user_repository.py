@@ -88,7 +88,6 @@ def test_update_user(db_connection):
     db_connection.seed("seeds/social_network.sql")
     repository = UserRepository(db_connection)
     user = repository.find(2)
-    print(user.email)
     user.email = "BIGcHANTZ@twtw.com"
     assert repository.update(user) == None
     assert repository.all() == [
