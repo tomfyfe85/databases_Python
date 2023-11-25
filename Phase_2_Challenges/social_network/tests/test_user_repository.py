@@ -67,7 +67,7 @@ We remove a record from the database.
 """
 
 
-def test_delete_record(db_connection):
+def test_delete_user(db_connection):
     db_connection.seed("seeds/social_network.sql")
     repository = UserRepository(db_connection)
     user = User(None, "viv", "viv@viv.com")
@@ -82,3 +82,16 @@ def test_delete_record(db_connection):
         User(3, "kipper", "kipper@steak.com"),
         User(4, "viv", "viv@viv.com"),
     ]
+
+
+def test_update_user(db_connection):
+    db_connection.seed("seeds/social_network.sql")
+    repository = UserRepository(db_connection)
+    user = repository.find(2)
+    print(user.email)
+    user.email = "BIGcHANTZ@twtw.com"
+    assert repository.update(user) == None
+    assert repository.all() == [
+        User(1, "tom", "fyfe@keg.com"),
+        User(2, "chants", "BIGcHANTZ@twtw.com"),
+        User(3, "kipper", "kipper@steak.com")]

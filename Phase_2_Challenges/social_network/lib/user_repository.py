@@ -7,12 +7,8 @@ class UserRepository:
         self._connection = connection
 
     def all(self):
-        rows = self._connection.execute("SELECT * from users")
-        users = []
-        for row in rows:
-            item = User(row["id"], row["name"], row["email"])
-            users.append(item)
-        return users
+        rows = self._connection.execute("SELECT * from users ORDER BY id ASC")
+        return [User(row["id"], row["name"], row["email"]) for row in rows]
 
     # Find a single user by their id
     def find(self, user_id):
@@ -32,3 +28,9 @@ class UserRepository:
     def delete(self, user_id):
         self._connection.execute("DELETE FROM users WHERE id = %s", [user_id])
         return None
+
+    def update(self, user):
+        self._connection.execute(
+            "UPDATE users SET name = %s, email = %s WHERE id = %s",
+            [user.name, user.email, user.id],
+        )
