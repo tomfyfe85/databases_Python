@@ -31,6 +31,6 @@ class PostRepository:
         return None
 
     # # Delete an user by their id
-    # def delete(self, post_id):
-    #     self._connection.execute("DELETE FROM posts WHERE id = %s", [post_id])
-    #     return None
+    def delete(self, post_id):
+        self._connection.execute("DELETE FROM posts WHERE id = %s", [post_id])
+        return None

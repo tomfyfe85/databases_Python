@@ -13,7 +13,7 @@ def test_get_all_posts(
     db_connection.seed(
         "seeds/social_network.sql"
     )  # Seed our database with some test data
-    repository = PostRepository(db_connection) 
+    repository = PostRepository(db_connection)
 
     posts = repository.all()
 
@@ -61,24 +61,24 @@ def test_create_post(db_connection):
     ]
 
 
-# """
-# When we call PostRepository#delete
-# We remove a record from the database.
-# """
+"""
+When we call PostRepository#delete
+We remove a record from the database.
+"""
 
 
-# def test_delete_post(db_connection):
-#     db_connection.seed("seeds/social_network.sql")
-#     repository = PostRepository(db_connection)
-#     post = Post(4, "new post", "new content", 9, 2)
-#     assert repository.create(post) == None
+def test_delete_post(db_connection):
+    db_connection.seed("seeds/social_network.sql")
+    repository = PostRepository(db_connection)
+    post = Post(4, "new Title", "new Content", 9, 2)
+    assert repository.create(post) == None
 
-#     assert repository.delete(1) == None
+    assert repository.delete(1) == None
 
-#     posts = repository.all()
+    posts = repository.all()
 
-#     assert posts == [
-#         Post(2, "chants", "chants@twtw.com"),
-#         Post(3, "kipper", "kipper@steak.com"),
-#         Post(4, "viv", "viv@viv.com"),
-#     ]
+    assert posts == [
+        Post(2, "new live show", "we are on this week", 100, 2),
+        Post(3, "el beers", "tour beers are good beers", 110000, 3),
+        Post(4, "new Title", "new Content", 9, 2),
+    ]
