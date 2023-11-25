@@ -1,5 +1,6 @@
 from lib.database_connection import DatabaseConnection
 from lib.user_repository import UserRepository
+from lib.post_repository import PostRepository
 from lib.user import User
 
 # from lib.post_repository import PostRepository
@@ -12,16 +13,15 @@ connection.connect()
 connection.seed("seeds/social_network.sql")
 
 # Retrieve all users
-# user_repository = UserRepository(connection)
-# users = user_repository.all()
-# # List them out
+user_repository = UserRepository(connection)
+users = user_repository.all()
+# List them out
 
-# print("\n")
-# print("ALL USERS")
-# for user in users:
-#     print(user)
-# print("\n")
-# # find specific user
+print("ALL USERS")
+for user in users:
+    print(user)
+print("\n")
+# find specific user
 
 # print("USER FOUND")
 # user2 = user_repository.find(2)
@@ -41,3 +41,11 @@ connection.seed("seeds/social_network.sql")
 # user_1_deleted = user_repository.all()
 # for users in user_1_deleted:
 #     print(users)
+
+
+post_repository = PostRepository(connection)
+posts = post_repository.all()
+
+print("ALL POSTS")
+for post in posts:
+    print(post)
