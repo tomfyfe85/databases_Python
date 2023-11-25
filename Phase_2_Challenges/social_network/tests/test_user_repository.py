@@ -42,10 +42,12 @@ def test_get_single_user(db_connection):
 When we call UserRepository#create
 We get a new record in the database.
 """
+
+
 def test_create_user(db_connection):
     db_connection.seed("seeds/social_network.sql")
     repository = UserRepository(db_connection)
-    
+
     user = User(None, "viv", "viv@viv.com")
     assert repository.create(user) == None
 
@@ -55,21 +57,28 @@ def test_create_user(db_connection):
         User(1, "tom", "fyfe@keg.com"),
         User(2, "chants", "chants@twtw.com"),
         User(3, "kipper", "kipper@steak.com"),
-        User(4, "viv", "viv@viv.com")
+        User(4, "viv", "viv@viv.com"),
     ]
 
-# """
-# When we call ArtistRepository#delete
-# We remove a record from the database.
-# """
-# def test_delete_record(db_connection):
-#     db_connection.seed("seeds/social_network.sql")
-#     repository = ArtistRepository(db_connection)
-#     repository.delete(3) # Apologies to Taylor Swift fans
 
-#     result = repository.all()
-#     assert result == [
-#         Artist(1, "Pixies", "Rock"),
-#         Artist(2, "ABBA", "Pop"),
-#         Artist(4, "Nina Simone", "Jazz"),
-#     ]
+"""
+When we call UserRepository#delete
+We remove a record from the database.
+"""
+
+
+def test_delete_record(db_connection):
+    db_connection.seed("seeds/social_network.sql")
+    repository = UserRepository(db_connection)
+    user = User(None, "viv", "viv@viv.com")
+    assert repository.create(user) == None
+
+    assert repository.delete(1) == None
+
+    users = repository.all()
+
+    assert users == [
+        User(2, "chants", "chants@twtw.com"),
+        User(3, "kipper", "kipper@steak.com"),
+        User(4, "viv", "viv@viv.com"),
+    ]
