@@ -12,32 +12,32 @@ connection.connect()
 connection.seed("seeds/social_network.sql")
 
 # Retrieve all users
-user_repository = UserRepository(connection)
-users = user_repository.all()
-# List them out
+# user_repository = UserRepository(connection)
+# users = user_repository.all()
+# # List them out
 
-print("\n")
-print("ALL USERS")
-for user in users:
-    print(user)
-print("\n")
-# find specific user
+# print("\n")
+# print("ALL USERS")
+# for user in users:
+#     print(user)
+# print("\n")
+# # find specific user
 
-print("USER FOUND")
-user2 = user_repository.find(2)
-print(f"{user2} is user 2 \n")
+# print("USER FOUND")
+# user2 = user_repository.find(2)
+# print(f"{user2} is user 2 \n")
 
-# create add new user to the database
-user = User(None, "viv", "viv@viv.com")
-user_repository.create(user)
-newUser = user_repository.all()
-print("NEW USER ADDED")
-for users in newUser:
-    print(users)
+# # create add new user to the database
+# user = User(None, "viv", "viv@viv.com")
+# user_repository.create(user)
+# newUser = user_repository.all()
+# print("NEW USER ADDED")
+# for users in newUser:
+#     print(users)
 
-print("\n")
-print("USER 1 DELETED")
-user_repository.delete(1)
-user_1_deleted = user_repository.all()
-for users in user_1_deleted:
-    print(users)
+# print("\n")
+# print("USER 1 DELETED")
+# user_repository.delete(1)
+# user_1_deleted = user_repository.all()
+# for users in user_1_deleted:
+#     print(users)
