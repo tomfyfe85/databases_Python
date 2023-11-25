@@ -24,18 +24,18 @@ def test_get_all_posts(
     ]
 
 
-# """
-# When we call PostRepository#find
-# We get a single Artist object reflecting the seed data.
-# """
+"""
+When we call PostRepository#find
+We get a single Artist object reflecting the seed data.
+"""
 
 
-# def test_get_single_post(db_connection):
-#     db_connection.seed("seeds/social_network.sql")
-#     repository = PostRepository(db_connection)
+def test_get_single_post(db_connection):
+    db_connection.seed("seeds/social_network.sql")
+    repository = PostRepository(db_connection)
 
-#     post = repository.find(2)
-#     assert post == Post("new live show", "we are on this week", 100, 2)
+    post = repository.find(2)
+    assert post == Post(2, "new live show", "we are on this week", 100, 2)
 
 
 """

@@ -17,12 +17,12 @@ class PostRepository:
         return posts
 
     # Find a single user by their id
-    # def find(self, post_id):
-    #     rows = self._connection.execute("SELECT * from posts WHERE id = %s", [post_id])
-    #     row = rows[0]
-    #     return  Post(row["id"], row["content"], row["number_of_views"], row['user_id'])
+    def find(self, post_id):
+        rows = self._connection.execute("SELECT * from posts WHERE id = %s", [post_id])
+        row = rows[0]
+        return  Post(row["id"], row['title'], row["content"], row["number_of_views"], row['user_id'])
 
-    # # Create a new user
+    # Create a new user
     # # Do you want to get its id back? Look into RETURNING id;
     # def create(self, post):
     #     self._connection.execute(
