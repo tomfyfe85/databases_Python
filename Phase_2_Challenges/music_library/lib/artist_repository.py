@@ -22,6 +22,13 @@ class ArtistRepository:
         row = rows[0]
         return Artist(row["id"], row["name"], row["genre"])
 
+    def find_with_albums(self, artist_id):
+        rows = self._connection.execute(
+            "SELECT * FROM artists JOIN albums ON artists.id = albums.artist_id"
+            "WHERE artist_id =  %s"[artist_id]
+        )
+        # 11.45 in on the vid. method unfinished
+
     # # Create a new artist
     # # Do you want to get its id back? Look into RETURNING id;``
     def create(self, artist):
@@ -31,10 +38,6 @@ class ArtistRepository:
         )
         return None
 
-    # # Delete an artist by their id~
-    # def delete(self, artist_id):
-    #     self._connection.execute("DELETE FROM artists WHERE id = %s", [artist_id])
-    #     return None
     def delete(self, artist_id):
         self._connection.execute("DELETE FROM artists WHERE id = %s", [artist_id])
-        return None 
+        return None
