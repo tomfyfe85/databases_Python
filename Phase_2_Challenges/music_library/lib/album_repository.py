@@ -16,7 +16,9 @@ class AlbumRepository:
         ]
 
     def find(self, album_id):
-        rows = self._connection.execute("SELECT * from albums WHERE id = %s", [album_id])
+        rows = self._connection.execute(
+            "SELECT * from albums WHERE id = %s", [album_id]
+        )
         row = rows[0]
         return Album(row["id"], row["title"], row["release_year"], row["artist_id"])
 
@@ -27,7 +29,7 @@ class AlbumRepository:
         )
         return None
 
-    # # Delete an user by their id
-    # def delete(self, post_id):
-    #     self._connection.execute("DELETE FROM posts WHERE id = %s", [post_id])
-    #     return None
+    # Delete an user by their id
+    def delete(self, album_id):
+        self._connection.execute("DELETE FROM albums WHERE id = %s", [album_id])
+        return None
