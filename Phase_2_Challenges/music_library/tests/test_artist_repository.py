@@ -87,7 +87,7 @@ Then I get the artist with a list of their albums, prepopulated.
 """
 
 
-def test_find_with_albums():
+def test_find_with_albums(db_connection):
     db_connection.seed("seeds/music_library.sql")
     repository = ArtistRepository(db_connection)
 
