@@ -1,5 +1,6 @@
 from lib.cohort_repository import CohortRepository
 from lib.cohort import Cohort
+from lib.student import Student
 import datetime
 
 date1 = datetime.date(2023, 6, 1)
@@ -45,11 +46,28 @@ def test_get_single_record(db_connection):
 
 
 """
-# When we call CohortRepository#create
-# We get a new record in the database.
-# """
+When I call #find_with_students with a cohort id
+I get a the cohort with a list of it's students, prepopulated 
+"""
 
+def test_find_with_students(db_connection):
+    db_connection.seed("seeds/student_directory_2.sql")
+    repository = CohortRepository(db_connection)
 
+    cohort = repository.find_with_students(1)
+    assert cohort == Cohort(1, "June 22", date1, [
+        Student(1, 'Tom', 1),
+        Student(2, 'Chants', 3),
+        Student(3, 'Viv', 1),
+        Student(4, 'George', 2),
+    ])
+        
+    
+
+"""
+When we call CohortRepository#create
+We get a new record in the database.
+"""
 def test_create_record(db_connection):
     db_connection.seed("seeds/student_directory_2.sql")
     repository = CohortRepository(db_connection)
@@ -65,10 +83,10 @@ def test_create_record(db_connection):
     ]
 
 
-# """
-# When we call CohortRepository#delete
-# We remove a record from the database.
-# """
+"""
+When we call CohortRepository#delete
+We remove a record from the database.
+"""
 def test_delete_record(db_connection):
     db_connection.seed("seeds/student_directory_2.sql")
     repository = CohortRepository(db_connection)
@@ -79,3 +97,4 @@ def test_delete_record(db_connection):
         Cohort(1, "June 22", date1),
         Cohort(2, "July 22", date2),
     ]
+
