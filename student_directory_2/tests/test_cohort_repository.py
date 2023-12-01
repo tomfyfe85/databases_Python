@@ -81,10 +81,10 @@ def test_create_record(db_connection):
     ]
 
 
-# """
-# When we call CohortRepository#delete
-# We remove a record from the database.
-# """
+"""
+When we call CohortRepository#delete
+We remove a record from the database.
+"""
 def test_delete_record(db_connection):
     db_connection.seed("seeds/student_directory_2.sql")
     repository = CohortRepository(db_connection)
