@@ -1,0 +1,26 @@
+Problems:
+When the student_directory_2.sql file is set up with data the exact same way as the 
+music_library.sql file:
+
+tests fail -
+E           psycopg.errors.DependentObjectsStillExist: cannot drop table cohorts because other objects depend on it
+E           DETAIL:  constraint fk_cohort on table students depends on table cohorts
+E           HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+
+/Users/tomfyfe/.local/share/virtualenvs/student_directory_2-AaLmjOv7/lib/python3.11/site-packages/psycopg/cursor.py:725: DependentObjectsStillExist
+====================================== short test summary info ======================================
+FAILED tests/test_cohort_repository.py::test_get_all_cohorts - psycopg.errors.DependentObjectsStillExist: cannot drop table cohorts because other objects depen...
+FAILED tests/test_cohort_repository.py::test_get_single_record - psycopg.errors.DependentObjectsStillExist: cannot drop table cohorts because other objects depen...
+FAILED tests/test_cohort_repository.py::test_find_with_students - psycopg.errors.DependentObjectsStillExist: cannot drop table cohorts because other objects depen...
+FAILED tests/test_cohort_repository.py::test_create_record - psycopg.errors.DependentObjectsStillExist: cannot drop table cohorts because other objects depen...
+FAILED tests/test_cohort_repository.py::test_delete_record - psycopg.errors.DependentObjectsStillExist: cannot drop table cohorts because other objects depen...
+==================================== 5 failed, 7 passed in 0.22s ==
+
+
+When student_directory_2.sql is seeded to the database via the program, test_table is also added
+
+swapping the order of table drops seems fix DROP TABLE IF EXISTS cohorts CASCADE;
+
+
+
+
