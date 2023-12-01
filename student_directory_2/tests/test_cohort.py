@@ -1,14 +1,14 @@
 from lib.cohort import Cohort
 
 """
-Cohort constructs with an id, name and genre
+Cohort constructs with an id, cohort_name and genre
 """
 
 
 def test_cohort_constructs():
     cohort = Cohort(1, "Test Cohort", '2023-03-21')
     assert cohort.id == 1
-    assert cohort.name == "Test Cohort"
+    assert cohort.cohort_name == "Test Cohort"
     assert cohort.starting_date == '2023-03-21'
 
 
