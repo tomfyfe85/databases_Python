@@ -1,5 +1,5 @@
 from lib.database_connection import DatabaseConnection
-from lib.artist_repository import ArtistRepository
+from databases_repoClone_and_exercises.databases.projects.blog.lib.post_repository import ArtistRepository
 
 
 # Connect to the database
