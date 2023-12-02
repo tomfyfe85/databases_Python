@@ -1,7 +1,7 @@
 from lib.database_connection import DatabaseConnection
 from lib.user_repository import UserRepository
 from lib.post_repository import PostRepository
-from lib.user import User
+# from lib.user import User
 
 # from lib.post_repository import PostRepository
 
@@ -27,7 +27,7 @@ print("\n")
 # user2 = user_repository.find(2)
 # print(f"{user2} is user 2 \n")
 
-# # create add new user to the database
+# create add new user to the database
 # user = User(None, "viv", "viv@viv.com")
 # user_repository.create(user)
 # newUser = user_repository.all()
