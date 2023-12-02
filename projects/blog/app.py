@@ -17,4 +17,10 @@ post_comments = post_repository.find_with_comments(3)
 # print(post_comments.comments)
 
 for post in [post_comments]:
-    print(post.comments)
+    print()
+    print("post")
+    print(post)
+    print()
+    print("comments")
+    for comment in post.comments:
+        print(comment)
