@@ -34,13 +34,16 @@ class PostRepository:
                 row["id"], row["comment_content"], row["author"], row["post_id"]
             )
             comments.append(comment)
-        print(comments)
-        post = Post(
-            rows[0]["post_id"], rows[0]["title"], rows[0]["post_content"], comments
-        )
-        # print(post)
-
+        # print(comments)
+        post = Post(rows[0]["post_id"], rows[0]["title"], rows[0]["post_content"], comments)
+        print(post)
+        exit()
         return post
+
+    # The comments dictionary is being populated but not appearing 
+    # in the new instance of post 
+
+
 
     # Create a new post
     # Do you want to get its id back? Look into RETURNING id;

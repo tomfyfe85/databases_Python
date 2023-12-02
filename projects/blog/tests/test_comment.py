@@ -1,13 +1,13 @@
-from lib.post import Post
+# from lib.post import Comment
 
-"""
-Post constructs with an id, name and genre
-"""
-def test_Post_constructs():
-    post = Post(1, "Test Post", "Test Genre")
-    assert post.id == 1
-    assert post.title == "Test Post"
-    assert post.post_content == "Test Genre"
+# """
+# Post constructs with an id, name and genre
+# """
+# def test_Post_constructs():
+#     post = Post(1, "Test Post", "Test Genre")
+#     assert post.id == 1
+#     assert post.title == "Test Post"
+#     assert post.post_content == "Test Genre"
 
 # """
 # We can format posts to strings nicely

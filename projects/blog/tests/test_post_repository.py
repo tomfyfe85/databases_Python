@@ -54,7 +54,7 @@ def test_find_with_comments(db_connection):
         3,
         "post3",
         "content3",
-        [Comment(3, "yo", "author3", 3), Comment(4, "siiccck", "author4", 3)],
+        [Comment(3, "yo", "author3", 3), Comment(4, "siiccck", "author4", 3),],
     )
 
 

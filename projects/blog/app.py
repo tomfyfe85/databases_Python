@@ -1,5 +1,5 @@
 from lib.database_connection import DatabaseConnection
-from databases_repoClone_and_exercises.databases.projects.blog.lib.post_repository import ArtistRepository
+from lib.post_repository import PostRepository
 
 
 # Connect to the database
@@ -10,9 +10,7 @@ connection.connect()
 connection.seed("seeds/blog.sql")
 
 # Retrieve all artists
-artist_repository = ArtistRepository(connection)
-artists = artist_repository.all()
+post_repository = PostRepository(connection)
+post = post_repository.find_with_comments(3)
 
-# List them out
-for artist in artists:
-    print(artist)
+print(post)
