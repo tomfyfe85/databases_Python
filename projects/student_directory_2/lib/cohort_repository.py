@@ -7,7 +7,7 @@ class CohortRepository:
     def __init__(self, connection):
         self._connection = connection
 
-    # Retrieve all cohorts   
+    # Retrieve all cohorts
     def all(self):
         rows = self._connection.execute("SELECT * from cohorts")
         cohorts = []
@@ -28,22 +28,21 @@ class CohortRepository:
         rows = self._connection.execute(
             "SELECT * FROM cohorts JOIN students ON cohorts.id = students.cohort_id \
                 WHERE cohort_id = %s",
-            [cohort_id],erg
+            [cohort_id],
         )
-        
+
         students = []
         for row in rows:
             student = Student(row["id"], row["student_name"], row["cohort_id"])
             students.append(student)
-
-        print(students)
         cohort = Cohort(
             rows[0]["cohort_id"],
             rows[0]["cohort_name"],
             rows[0]["starting_date"],
-            students
+            students,
         )
         return cohort
+
     # # # Create a new artist
     # # # Do you want to get its id back? Look into RETURNING id;
     def create(self, cohort):

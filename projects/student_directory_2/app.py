@@ -11,8 +11,16 @@ connection.seed("seeds/student_directory_2.sql")
 
 # Retrieve all Cohorts
 cohort_repository = CohortRepository(connection)
-cohort = cohort_repository.find_with_students(2)
-print(cohort)
+cohort = cohort_repository.find_with_students(1)
+
 # List them out
-# for cohort in cohorts:
-#     print(cohort) 
+for cohort in [cohort]:
+    print()
+    print("cohort")
+    print(cohort) 
+    print()
+    
+    print("students")
+    for student in cohort.students:
+        print(student)
+print()
