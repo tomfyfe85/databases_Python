@@ -1,4 +1,5 @@
 from lib.post import Post
+from lib.comment import Comment
 
 
 class PostRepository:
@@ -16,21 +17,41 @@ class PostRepository:
         return posts
 
     # Find a single artist by their id
-    # def find(self, artist_id):
-    #     rows = self._connection.execute(
-    #         'SELECT * from artists WHERE id = %s', [artist_id])
-    #     row = rows[0]
-    #     return Artist(row["id"], row["name"], row["genre"])
+    def find(self, post_id):
+        rows = self._connection.execute("SELECT * from posts WHERE id = %s", [post_id])
+        row = rows[0]
+        return Post(row["id"], row["title"], row["post_content"])
 
-    # # Create a new artist
-    # # Do you want to get its id back? Look into RETURNING id;
-    # def create(self, artist):
-    #     self._connection.execute('INSERT INTO artists (name, genre) VALUES (%s, %s)', [
-    #                             artist.name, artist.genre])
-    #     return None
+    def find_with_comments(self, post_id):
+        rows = self._connection.execute(
+            "SELECT * FROM posts JOIN comments ON posts.id = comments.post_id \
+                WHERE post_id = %s",
+            [post_id],
+        )
+        comments = []
+        for row in rows:
+            comment = Comment(
+                row["id"], row["comment_content"], row["author"], row["post_id"]
+            )
+            comments.append(comment)
+        print(comments)
+        post = Post(
+            rows[0]["post_id"], rows[0]["title"], rows[0]["post_content"], comments
+        )
+        # print(post)
+
+        return post
+
+    # Create a new post
+    # Do you want to get its id back? Look into RETURNING id;
+    def create(self, post):
+        self._connection.execute(
+            "INSERT INTO posts(title, post_content) VALUES (%s, %s)",
+            [post.title, post.post_content],
+        )
+        return None
 
     # # Delete an artist by their id
-    # def delete(self, artist_id):
-    #     self._connection.execute(
-    #         'DELETE FROM artists WHERE id = %s', [artist_id])
-    #     return None
+    def delete(self, post_id):
+        self._connection.execute("DELETE FROM posts WHERE id = %s", [post_id])
+        return None

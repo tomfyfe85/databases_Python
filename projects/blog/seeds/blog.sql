@@ -35,9 +35,11 @@ INSERT INTO posts (title, post_content)
 VALUES ('post4', 'content4');
 
 INSERT INTO comments (comment_content, author, post_id)
-VALUES ('comment', 'author1', 1);
+VALUES ('hi', 'author1', 1);
 INSERT INTO comments (comment_content, author, post_id)
-VALUES ('comment 2', 'author2', 2);
+VALUES ('great', 'author2', 2);
 INSERT INTO comments (comment_content, author, post_id)
-VALUES ('comment 3', 'author3', 3);
+VALUES ('yo', 'author3', 3);
+INSERT INTO comments (comment_content, author, post_id)
+VALUES ('siiccck', 'author4', 3);
 

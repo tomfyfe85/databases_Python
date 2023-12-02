@@ -1,10 +1,11 @@
 class Post:
     # We initialise with all of our attributes
     # Each column in the table should have an attribute here
-    def __init__(self, id, title, post_content):
+    def __init__(self, id, title, post_content, comments=None):
         self.id = id
         self.title = title
         self.post_content = post_content
+        self.comments = comments or []
 
     # This method allows our tests to assert that the objects it expects
     # are the objects we made based on the database records.
