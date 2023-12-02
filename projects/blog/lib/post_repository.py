@@ -37,7 +37,7 @@ class PostRepository:
         # print(comments)
         post = Post(rows[0]["post_id"], rows[0]["title"], rows[0]["post_content"], comments)
         print(post)
-        exit()
+
         return post
 
     # The comments dictionary is being populated but not appearing 
